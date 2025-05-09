@@ -1,0 +1,19 @@
+org: armandohcc
+app: aws-http-api
+service: crmtest
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+
+functions:
+  api:
+    handler: src/index.handler
+    events:
+      - httpApi: '*'
+        cors: true
+
+plugins:
+  - serverless-ignore
